@@ -81,6 +81,7 @@ body, html {
 .content {
   height: 100vh;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -246,6 +247,11 @@ button:active{
 }
 
 @media screen and (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    padding: 10px;
+  }
+
   .content h1 {
     font-size: 2rem;
   }
