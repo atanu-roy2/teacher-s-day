@@ -1,0 +1,259 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Loader overlay */
+/* Opening black overlay */
+#animated-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#loaderCanvas {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+}
+
+
+/* Smooth fade-out animation */
+@keyframes fadeOutOverlay {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+
+/* Zooming text */
+@keyframes scaleUp {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Fade out loader */
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.content {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: fadeIn 2s ease-in;
+}
+
+.content p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+#subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: white;
+  text-align: center;
+  animation: fadeIn 2s ease-in;
+  z-index: 2;
+}
+
+
+button {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border: none;
+  background: #064581;
+  color: white;
+  font-weight: bolder;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+  animation: smoothbounce 2s infinite;
+}
+
+.button::after{
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+.button::before{
+    content: "";
+    background: linear-gradient(45deg,red,yellow,green,orange,blue,rgb(239, 8, 182),violet);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 600%;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+    opacity: 1;
+}
+
+button:hover {
+  background: #f50057;
+}
+button:active{
+    background-color: black;
+    color: yellow;
+}
+
+.message {
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  animation: fadeIn 1.5s ease-in forwards;
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.popup-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup-box {
+  background: linear-gradient(135deg, red, pink, white, red);
+  color: #333;
+  max-width: 500px;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  position: relative;
+  animation: zoomIn 0.4s ease;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  color: #f50057;
+  cursor: pointer;
+}
+
+
+
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+#toggleMusic {
+  margin-top: 1rem;
+  background-color: #4caf50;
+}
+#toggleMusic:hover{
+    background-color: #a9cfaa;
+    color: black;
+}
+
+@media screen and (max-width: 768px) {
+  .content h1 {
+    font-size: 2rem;
+  }
+  .content p {
+    font-size: 1.2rem;
+  }
+  button {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+}

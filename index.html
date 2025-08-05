@@ -1,0 +1,47 @@
+<head>
+  ...
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+</head>
+<body>
+  <div id="animated-loader">
+  <canvas id="loaderCanvas"></canvas>
+</div>
+
+
+  <video autoplay muted loop id="bg-video">
+    <source src="your-video.mp4" type="video/mp4" />
+  </video>
+
+  <audio id="bg-music" autoplay loop>
+    <source src="your-music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <div class="content">
+    <h1 id="typed-text"></h1>
+    <p id="subtitle">Thank you for your guidance, wisdom, and kindness.</p>
+    <button id="wishBtn" onclick=showMessage()>Click for a Special Message</button>
+    <!-- <button id="toggleMusic">Play Music 🎵</button> -->
+  </div>
+
+
+
+  <div class="popup-overlay hidden" id="popupOverlay">
+  <div class="popup-box" id="specialMessage">
+    <span class="close-btn" id="closePopup">&times;</span>
+    <h2>Dear Teachers,</h2>
+    <p>
+      You’ve inspired me in more ways than one. Your teachings have shaped
+      not just my knowledge but also my character. I truly appreciate
+      everything you do!
+    </p>
+    <p><strong>– With Respect and Gratitude</strong></p>
+  </div>
+</div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
